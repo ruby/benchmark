@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Hiroshi SHIBATA"]
   spec.email         = ["hsbt@ruby-lang.org"]
 
-  spec.summary       = %q{Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{a performance benchmarking library}
+  spec.description   = spec.summary
   spec.homepage      = "https://github.com/ruby/benchmark"
 
   spec.metadata["homepage_uri"] = spec.homepage
