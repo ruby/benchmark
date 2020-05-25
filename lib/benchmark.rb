@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-#--
+# --
 # benchmark.rb - a performance benchmarking library
 #
 # $Id$
