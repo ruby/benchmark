@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require 'test/unit'
-require 'benchmark'
+require_relative '../../lib/benchmark'
 
 class TestBenchmark < Test::Unit::TestCase
   BENCH_FOR_TIMES_UPTO = lambda do |x|
@@ -154,5 +154,13 @@ BENCH
     sleeptime = 1.0
     realtime = Benchmark.realtime { sleep sleeptime }
     assert_operator sleeptime, :<, realtime
+  end
+
+  def test_tms_to_h
+    tms = Benchmark::Tms.new(1.1, 2.2, 3.3, 4.4, 5.5, 'my label')
+    expected_hash = {
+      utime: 1.1, stime: 2.2, cutime: 3.3, cstime: 4.4, real: 5.5, label: 'my label'
+    }
+    assert_equal(expected_hash, tms.to_h)
   end
 end
