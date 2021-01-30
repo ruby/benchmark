@@ -156,6 +156,7 @@ BENCH
     assert_operator sleeptime, :<, realtime
   end
 
+  # Test that `to_h` returns a hash with the expected data.
   def test_tms_to_h
     tms = Benchmark::Tms.new(1.1, 2.2, 3.3, 4.4, 5.5, 'my label')
     expected_hash = {
