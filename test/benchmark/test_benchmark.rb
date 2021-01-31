@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require 'test/unit'
-require_relative '../../lib/benchmark'
+require 'benchmark'
 
 class TestBenchmark < Test::Unit::TestCase
   BENCH_FOR_TIMES_UPTO = lambda do |x|
