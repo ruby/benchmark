@@ -35,7 +35,7 @@ On my machine (OSX 10.8.3 on i5 1.7 GHz) this generates:
 0.350000   0.400000   0.750000 (  0.835234)
 ```
 
-This report shows the user CPU time, system CPU time, the sum of the user and system CPU times, and the elapsed real time. The unit of time is seconds.
+This report shows the user CPU time, system CPU time, the total time (sum of user CPU time, system CPU time, children's user CPU time, and children's system CPU time), and the elapsed real time. The unit of time is seconds.
 
 Do some experiments sequentially using the #bm method:
 
