@@ -150,6 +150,15 @@ BENCH
     assert_not_equal(0, t.real)
   end
 
+  # TODO: Consider combining with the above test
+  def test_add_in_place
+    t = Benchmark::Tms.new
+    assert_equal(0, t.total)
+    
+    t.add! { 1000.times do   ; '1'; end }
+    assert_not_equal(0, t.total)
+  end
+
   def test_realtime_output
     sleeptime = 1.0
     realtime = Benchmark.realtime { sleep sleeptime }
