@@ -30,8 +30,9 @@
 #
 #       0.350000   0.400000   0.750000 (  0.835234)
 #
-#   This report shows the user CPU time, system CPU time, the sum of
-#   the user and system CPU times, and the elapsed real time. The unit
+#   This report shows the user CPU time, system CPU time, the total time
+#   (sum of user CPU time, system CPU time, children's user CPU time,
+#   and children's system CPU time), and the elapsed real time. The unit
 #   of time is seconds.
 #
 # * Do some experiments sequentially using the #bm method:
@@ -503,7 +504,7 @@ module Benchmark
     # accepts the following extensions:
     #
     # <tt>%u</tt>::     Replaced by the user CPU time, as reported by Tms#utime.
-    # <tt>%y</tt>::     Replaced by the system CPU time, as reported by #stime (Mnemonic: y of "s*y*stem")
+    # <tt>%y</tt>::     Replaced by the system CPU time, as reported by Tms#stime (Mnemonic: y of "s*y*stem")
     # <tt>%U</tt>::     Replaced by the children's user CPU time, as reported by Tms#cutime
     # <tt>%Y</tt>::     Replaced by the children's system CPU time, as reported by Tms#cstime
     # <tt>%t</tt>::     Replaced by the total CPU time, as reported by Tms#total
@@ -511,7 +512,7 @@ module Benchmark
     # <tt>%n</tt>::     Replaced by the label string, as reported by Tms#label (Mnemonic: n of "*n*ame")
     #
     # If +format+ is not given, FORMAT is used as default value, detailing the
-    # user, system and real elapsed time.
+    # user, system, total and real elapsed time.
     #
     def format(format = nil, *args)
       str = (format || FORMAT).dup
