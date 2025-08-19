@@ -466,6 +466,7 @@ module Benchmark
       @cutime = cutime + t.cutime
       @cstime = cstime + t.cstime
       @real   = real + t.real
+      @total  = total + t.total
       self
     end
 
