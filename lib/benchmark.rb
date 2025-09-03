@@ -325,7 +325,20 @@ module Benchmark
     Process.clock_gettime(Process::CLOCK_MONOTONIC) - r0
   end
 
-  module_function :benchmark, :measure, :realtime, :bm, :bmbm
+  #
+  # Returns the elapsed real time used to execute the given block.
+  # The unit of time is milliseconds.
+  #
+  #       Benchmark.ms { "a" * 1_000_000_000 }
+  #       #=> 509.8029999935534
+  #
+  def ms # :yield:
+    r0 = Process.clock_gettime(Process::CLOCK_MONOTONIC, :float_millisecond)
+    yield
+    Process.clock_gettime(Process::CLOCK_MONOTONIC, :float_millisecond) - r0
+  end
+
+  module_function :benchmark, :measure, :realtime, :ms, :bm, :bmbm
 
   #
   # A Job is a sequence of labelled blocks to be processed by the
