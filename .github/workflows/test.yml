@@ -11,6 +11,8 @@ jobs:
   test:
     needs: ruby-versions
     name: build (${{ matrix.ruby }} / ${{ matrix.os }})
+    env:
+      BUNDLE_WITHOUT: sig
     strategy:
       matrix:
         ruby: ${{ fromJson(needs.ruby-versions.outputs.versions) }}
