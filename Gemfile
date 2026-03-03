@@ -7,3 +7,8 @@ group :development do
   gem "rake"
   gem "test-unit"
 end
+
+group :sig do
+  gem "rbs"
+  gem "rdoc"
+end

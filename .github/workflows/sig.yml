@@ -1,0 +1,18 @@
+name: sig
+
+on: [push, pull_request]
+
+jobs:
+  sig:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITH: sig
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ruby
+      - name: Run RBS tests
+        run: bundle exec rake rbs:test

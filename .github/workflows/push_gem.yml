@@ -12,6 +12,8 @@ jobs:
   push:
     if: github.repository == 'ruby/benchmark'
     runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITHOUT: sig
 
     environment:
       name: rubygems.org
